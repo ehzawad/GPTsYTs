@@ -112,10 +112,31 @@ def main():
     print(video_description)
 
     transcript_choice = input("Do you want the full transcript of the video? (yes/no): ").lower()
+
     if transcript_choice == 'yes':
         full_transcript = get_full_transcript(selected_video['id']['videoId'])
-        print("Full Transcript:")
-        print(full_transcript)
+
+        if not full_transcript.startswith("An error occurred"):
+            print("Full Transcript:")
+            print(full_transcript)
+
+            # Retrieve and format the video title to create a valid filename
+            video_title = selected_video['snippet']['title']
+            filename = "".join(char if char.isalnum() or char == ' ' else '_' for char in video_title)
+            filename = filename.replace(' ', '_') + ".txt"
+
+            # Write the transcript to a text file
+            try:
+                with open(filename, 'w', encoding='utf-8') as file:
+                    file.write(full_transcript)
+                print(f"Transcript successfully saved to {filename}")
+            except Exception as e:
+                print(f"An error occurred while writing the file: {e}")
+        else:
+            print(full_transcript)
+
+# Rest of your script...
+
 
 if __name__ == "__main__":
     main()
