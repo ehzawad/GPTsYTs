@@ -13,4 +13,4 @@ The Application should only be used for personal, non-commercial purposes.
 We reserve the right to modify these Terms at any time. Your continued use of the Application following such changes will indicate your acceptance of the new Terms.
 
 ## Contact Information
-If you have any questions about these Terms, please contact us at Your Contact Email.
+If you have any questions about these Terms, please contact us at ehzawad@gmail.com
